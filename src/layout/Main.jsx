@@ -54,7 +54,7 @@ const Main = () => {
   return (
     <section className="main h-screen grid items-center min-h-[500px] ">
       <div className="container">
-        <div className="grid grid-cols-2 gap-8 ">
+        <div className="grid lg:grid-cols-2 gap-8 ">
           <div className="shorter-function">
             <div className="text-center text-white">
               <h1 className="text-5xl font-bold">Create Short URL!</h1>
@@ -93,32 +93,30 @@ const Main = () => {
           </div>
 
           <div className="shorter-url">
-            <div className="url-data-table bg-white text-left p-5 rounded-xl shadow-lg">
-              <table className="table-auto w-full">
+            <div className="url-data-table bg-[#fdfdfdeb] text-left p-5 rounded-xl shadow-lg">
+              <table className="table-auto w-full text-sm md:text-base">
                 <thead>
                   <tr>
                     <th>Long URL</th>
-                    <th>Short URL</th>
-                    <th>Clicks</th>
+                    <th>
+                      Short URL <span className="float-right">Clicks</span>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {!isLoading &&
                     allURL.map((url) => (
                       <tr key={url.shortId}>
-                        <td title={url.url}>{url.url?.slice(0, 30)}...</td>
+                        <td title={url.url}>{url.url?.slice(0, 15)}...</td>
                         <td>
                           <Link
                             to={`/${url.shortId}`}
                             className="text-blue-500 font-semibold"
                           >
-                            {url.shortId}
-                          </Link>{" "}
-                          <button className="float-right border px-2">
-                            Copy
-                          </button>
+                            {window.location.href + url.shortId}
+                          </Link>
+                          <strong className="float-right">{url.clicks}</strong>
                         </td>
-                        <td align="center">{url.clicks}</td>
                       </tr>
                     ))}
                 </tbody>
