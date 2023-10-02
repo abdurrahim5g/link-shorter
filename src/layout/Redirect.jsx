@@ -9,7 +9,10 @@ const Redirect = () => {
 
   useEffect(() => {
     axios
-      .patch(`http://localhost:5000/url/${shortId}`, { clicks: clicks })
+      .patch(
+        `https://link-shorter-server-c75qcfiuo-f-rahim.vercel.app/url/${shortId}`,
+        { clicks: clicks }
+      )
       .then((res) => {
         const data = res.data;
         if (data.acknowledged && data.matchedCount) {

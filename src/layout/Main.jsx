@@ -14,7 +14,7 @@ const Main = () => {
     refetch,
     isLoading,
   } = useQuery("urlShorter", async () => {
-    return axios("http://localhost:5000/url")
+    return axios("https://link-shorter-server-c75qcfiuo-f-rahim.vercel.app/url")
       .then((res) => res.data)
       .catch((err) => console.error(err));
   });
@@ -34,7 +34,10 @@ const Main = () => {
 
     // console.log("Short URL", urlDoc);
     axios
-      .post("http://localhost:5000/url", urlDoc)
+      .post(
+        "https://link-shorter-server-c75qcfiuo-f-rahim.vercel.app/url",
+        urlDoc
+      )
       .then((res) => {
         const data = res.data;
         if (data.acknowledged) {

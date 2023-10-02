@@ -9,7 +9,7 @@ const router = createBrowserRouter([
     path: "/:id",
     element: <Redirect />,
     loader: ({ params }) =>
-      axios(`http://localhost:5000/url?shortId=${params.id}`),
+      axios(`https://link-shorter-server-c75qcfiuo-f-rahim.vercel.app/url?shortId=${params.id}`),
   },
   {
     path: "*",
