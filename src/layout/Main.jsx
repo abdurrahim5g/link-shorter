@@ -16,6 +16,7 @@ const Main = () => {
     };
 
     setUrlDocument([urlDoc]);
+    setUrl("");
 
     console.log("Short URL", urlDoc);
   };
@@ -38,6 +39,7 @@ const Main = () => {
                 <div>
                   <form
                     onSubmit={handleShortURL}
+                    id="urlForm"
                     className="grid grid-cols-3 gap-7 text-xl"
                   >
                     <input
